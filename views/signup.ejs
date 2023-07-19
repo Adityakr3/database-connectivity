@@ -1,0 +1,11 @@
+<%- include("parts/header") %>
+<%- include("parts/nav") %>
+<form style="margin-left:25%; margin-top:12%; box-shadow:0px 0px 5px rgba(0, 0, 0, 0.465)" class="conatiner text-center d-flex flex-column form-control w-50 h-75 text-align"action="/signup" method="post">
+    <h1>Signup Page</h1>
+    <input class="mt-5 form-control" name="name" type="name" placeholder="Name">
+    <input class="mt-2 form-control" name="email" type="email" placeholder="aditya@gmail.com">
+    <input class="mt-2 form-control"name="password" type="passward" placeholder="********">
+    <a href="/forget">Forget Password</a> <br>
+    <button class="mt-2 btn btn-primary p-2" >Sign in</button>
+</form>
+<%- include("parts/footer") %>
