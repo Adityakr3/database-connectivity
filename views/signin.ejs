@@ -1,10 +1,9 @@
 <%- include("parts/header") %>
 <%- include("parts/nav") %>
-<form style="margin-left:25%; margin-top:12%; box-shadow:0px 0px 5px rgba(0, 0, 0, 0.465)" class="conatiner text-center d-flex flex-column form-control w-50 h-75 text-align" action=" ">
+<form style="margin-left:25%; margin-top:12%; box-shadow:0px 0px 5px rgba(0, 0, 0, 0.465)" class="conatiner text-center d-flex flex-column form-control w-50 h-75 text-align" action="/signin" method="post">
     <h1>Signin Page</h1>
-    <input class="mt-2 form-control" type="email" placeholder="aditya@gmail.com">
-    <input class="mt-2 form-control" type="passward" placeholder="Enter your password">
-    <input class="mt-2 form-control" type="passward" placeholder="confirm password">
+    <input class="mt-2 form-control"name="name" type="text" placeholder="name">
+    <input class="mt-2 form-control"name="password"  type="passward" placeholder="Enter your password">
     <button class= "mt-2 btn btn-primary p-2" >Sign in</button>
 </form>
 <%- include("parts/footer") %>

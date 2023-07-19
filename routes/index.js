@@ -23,6 +23,23 @@ router.post('/signup',async function(req, res, next) {
 router.get('/signin', function(req, res, next) {
   res.render('signin', { title: 'signin' });
 });
+
+router.post('/signin', async function(req, res, next) {
+    try {
+      const {name , password} = req.body;
+      const users = await user.findOne({name});
+      if(users===null){
+        return res.send(`user not found.<a herf="/signin"> signin </a>`)
+      }
+      if(users.password !== password){
+        return res.send(`password worng.<a herf="/signin"> signin </a>`)
+      }
+      res.json(users);
+    } catch (error) {
+      res.send(error)
+    }
+});
+
 router.get('/signout', function(req, res, next) {
   res.render('signout', { title: 'signout' });
 });
