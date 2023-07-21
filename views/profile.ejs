@@ -1,0 +1,16 @@
+<%- include("parts/header") %>
+<%- include("parts/nav") %>
+  
+<h1 class="container bg-light mt-5 p-5" >Welcome to profile page</h1>
+
+<ul class="list-group w-25">
+  <%User.forEach((user)=>{%>
+     <li class="list-group-item"><%=user.name%></li>
+     <span class="d-flex" >
+      <a class="text-decoration-none" href="/update/<%= user._id %>"> 🖍</a>
+      <a class="text-decoration-none"  href="/delete/<%= user._id %>"> ❌</a>
+     </span>
+ <%})%>
+</ul>
+
+<%- include("parts/footer") %>
