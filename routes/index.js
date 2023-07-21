@@ -50,14 +50,16 @@ router.post("/signin", async function (req, res, next) {
 });
 
 
+
 router.get("/profile", async function (req, res, next) {
   try {
-    const User = await user.find();
-    res.render("profile", { title: "profile", User });
+    const Users = await user.find();
+    res.render("profile", { title: "profile", User:Users });
   } catch (error) {
     res.send(error);
   }
 });
+
 
 
 
@@ -69,8 +71,26 @@ router.get("/delete/:id", async function (req, res, next) {
     res.send(error);
   }
 });
+// update router add 
 
-
+router.get('/update/:userId',async(req,res,next)=>{
+  var currentUser =await user.findOne(
+    {_id : req.params.userId}
+  )
+  res.render("update",{
+    user:currentUser,title:"Edit User"
+  })
+})
+router.post('/update/:user_id',async(req,res,next)=>{
+  console.log(req.json)
+  var currentUser = await user.findOneAndUpdate({_id:req.params.user_id},{
+    name:req.body.name,
+    email:req.body.email,
+    password:req.body.password,
+  
+  })
+  res.redirect('/profile')
+})
 
 
 
