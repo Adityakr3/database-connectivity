@@ -1,0 +1,11 @@
+<%- include("parts/header")%>
+<%- include("parts/nav")%>
+
+<form style="margin-left:25%; margin-top:12%; box-shadow:0px 0px 5px rgba(0, 0, 0, 0.465)" class="conatiner text-center d-flex flex-column form-control w-50 h-75 text-align" action="/reset/<%=id%>" method="post">
+    <h1>Reset Your password</h1>
+    <input name="oldpassword" class="mt-2 form-control" type="password" placeholder="Old Password">
+    <input name="password" class="mt-2 form-control" type="password" placeholder="New Password">
+    <button class= "mt-2 btn btn-primary p-2" >Reset</button>
+</form>
+
+<%- include("parts/footer")%>
