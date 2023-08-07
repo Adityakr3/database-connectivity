@@ -8,14 +8,26 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Homepage" });
 });
 
+router.get("/forget", function (req, res, next) {
+  res.render("forget", { title: "forget" });
+});
+
+router.post("/forget", async function (req, res, next) {
+  try {
+    const user = await usermodel.findOne({email:req.body.email});
+    if (!user) {
+      return res.send(`User not found. <a href="/forgot">Forget Password</a>`);
+    }
+    res.redirect(`/changepassword/${user._id}`);
+  } catch (error) {
+    res.send(error);
+  }
+});
 
 
 router.get("/signup", function (req, res, next) {
   res.render("signup", { title: "signup" });
 });
-
-
-
 router.post("/signup", async function (req, res, next) {
   try {
     const newuser = new usermodel(req.body);
@@ -117,8 +129,21 @@ router.post("/reset/:id", async function(req, res, next) {
 
 
 
-router.get("/forget", function (req, res, next) {
-  res.render("forget", { title: "forget" });
+router.get("/changepassword/:id", function(req, res, next) {
+  console.log(req.params);
+  res.render("changepassword", {
+    title: "change password",
+    id: req.params.id,
+  });
+});
+
+router.post("/changepassword/:id", async function(req, res, next) {
+  try {
+    await usermodel.findByIdAndUpdate(req.params.id, { password: req.body.password });
+    res.redirect("/signin");
+  } catch (error) {
+    res.send(error);
+  }
 });
 
 module.exports = router;

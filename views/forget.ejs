@@ -1,10 +1,10 @@
 <%- include("parts/header") %>
 <%- include("parts/nav") %>
-<form style="margin-left:25%; margin-top:12%; box-shadow:0px 0px 5px rgba(0, 0, 0, 0.465)" class="conatiner text-center d-flex flex-column form-control w-50 h-75 text-align" action=" ">
+<form style="margin-left:25%; margin-top:12%; box-shadow:0px 0px 5px rgba(0, 0, 0, 0.465)" class="conatiner text-center d-flex flex-column form-control w-50 h-75 text-align" action="/forget" method="post">
     <h1>Enter Existing Page</h1>
-    <input class="mt-2 form-control" type="email" placeholder="aditya@gmail.com">
-    <button class= "mt-2 btn btn-primary p-2" >send mail</button>
-    <a href="/signup">signup</a>   <a href="/signin">signin</a>
-
+    <input class="mt-2 form-control" type="email"  name="email" placeholder="aditya@gmail.com">
+    <button type="submit" class= "mt-2 btn btn-primary p-2" >Sumit</button> <br>
 </form>
 <%- include("parts/footer") %>
+
+   
